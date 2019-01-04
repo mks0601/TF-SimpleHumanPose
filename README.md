@@ -150,14 +150,15 @@ Here I report the performance of the model from this repo and [the original pape
 As this repo outputs compatible output files for MS COCO and PoseTrack, you can directly use [cocoapi](https://github.com/cocodataset/cocoapi) or [poseval]( https://github.com/leonid-pishchulin/poseval) to evaluate result on the MS COCO or PoseTrack dataset. You have to convert the produced `json` file to `mat` file to evaluate on MPII dataset following [this](http://human-pose.mpi-inf.mpg.de/#evaluation).
 
 ### Results on COCO val2017
-| Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+For every methods, human detection results of 55.3 AP is used.
+
+| Setting | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 256x192_resnet50 (this repo) | 69.7 | 87.9 | 77.4 | 66.9 | 76.1 | 76.3 | 92.9 | 83.1 | 72.0 | 82.4 |
-| 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.4 | 88.6 | 78.3 | 67.1 | 77.2 | 76.3 | 92.9 | 83.4 | 72.1 | 82.4 |
+| 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 |
 
 Note that there are some differences between the model from my repo and [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)
 * Both of them is trained with 32 mini-batch per GPU, however mine used 2 GPUs while theirs used 4 GPUs (2x smaller total mini-batch size)
-* I used human detection results of 55.3 AP, while theirs used that of 56.4 AP on human class of COCO val2017 dataset.
 
 ### Results on PoseTrack2018 validation set
 Coming soon!

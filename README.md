@@ -158,7 +158,7 @@ For all methods, human detection results of 55.3 AP of human class in MS COCO va
 | 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 |
 
 Note that there are some differences between the model from my repo and [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)
-* Both of them is trained with 32 mini-batch per GPU, however mine used 2 GPUs while theirs used 4 GPUs (2x smaller total mini-batch size)
+* Both of them is trained with 32 mini-batch per GPU, however mine used 2 GPUs while theirs used 4 GPUs (2x smaller total mini-batch size) -> I'm training a model with 4 GPUs. The results coming soon!
 
 ### Results on PoseTrack2018 validation set
 Coming soon!

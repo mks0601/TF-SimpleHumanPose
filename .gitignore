@@ -1,0 +1,11 @@
+*.jpg
+*.png
+*.pyc
+*.pdf
+*.json
+*.json*
+*.ckpt*
+*.tar.gz
+*.pkl
+output/
+!figs/*

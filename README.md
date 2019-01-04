@@ -1,10 +1,5 @@
 # Simple Baselines for Human Pose Estimation and Tracking
 
-![result_1](/figs/1.jpg =250x250)
-![result_2](/figs/2.jpg =250x250)
-![result_3](/figs/3.jpg =250x250)
-![result_4](/figs/4.jpg =250x250)
-
 ## Introduction
 
 This repo is **[TensorFlow](https://www.tensorflow.org)** implementation of **[Simple Baselines for Human Pose Estimation and Tracking (ECCV 2018)](https://arxiv.org/abs/1804.06208)** for **2D multi-person pose estimation** from a single RGB image.

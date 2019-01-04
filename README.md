@@ -1,9 +1,9 @@
 # Simple Baselines for Human Pose Estimation and Tracking
 
-![result_1](/figs/1.jpg)
-![result_2](/figs/2.jpg)
-![result_3](/figs/3.jpg)
-![result_4](/figs/4.jpg)
+![result_1](/figs/1.jpg =250x250)
+![result_2](/figs/2.jpg =250x250)
+![result_3](/figs/3.jpg =250x250)
+![result_4](/figs/4.jpg =250x250)
 
 ## Introduction
 

@@ -1,7 +1,6 @@
 # Simple Baselines for Human Pose Estimation and Tracking
 <p align="center">
-<img src="/figs/1.jpg" width="400" height="250"> <img src="/figs/2.jpg" width="400" height="250">
-<img src="/figs/3.jpg" width="400" height="300"> <img src="/figs/4.jpg" width="400" height="300">
+<img src="/figs/2.jpg" width="400" height="250"> <img src="/figs/4.jpg" width="400" height="250">
 </p>
 
 ## Introduction

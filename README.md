@@ -92,8 +92,7 @@ ${POSE_ROOT}
 ```
 * In the `tool`, run `python mpii2coco.py` to convert MPII annotation files to MS COCO format (`MPII/annotations`).
 * In the `tool`, run `python posetrack2coco.py` to convert PoseTrack annotation files to MS COCO format (`PoseTrack/annotations`).
-* In the training stage, GT human bbox is used, and `human_detection.json` is used in testing stage which should be prepared before testing.
-* `human_detection.json` should follow [MS COCO format](http://cocodataset.org/#format-results).
+* In the training stage, GT human bbox is used, and `human_detection.json` is used in testing stage which should be prepared before testing and follow [MS COCO format](http://cocodataset.org/#format-results).
 * Download imagenet pre-trained resnet models from [tf-slim](https://github.com/tensorflow/models/tree/master/research/slim) and place it in the `data/imagenet_weights`.
 * Except for `annotation` of the MPII and PoseTrack, all other directories are original version of downloaded ones.
 * If you want to add your own dataset, you have to convert it to [MS COCO format](http://cocodataset.org/#format-data).

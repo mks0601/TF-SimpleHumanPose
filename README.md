@@ -150,9 +150,9 @@ Here I report the performance of the model from this repo and [the original pape
 As this repo outputs compatible output files for MS COCO and PoseTrack, you can directly use [cocoapi](https://github.com/cocodataset/cocoapi) or [poseval]( https://github.com/leonid-pishchulin/poseval) to evaluate result on the MS COCO or PoseTrack dataset. You have to convert the produced `json` file to `mat` file to evaluate on MPII dataset following [this](http://human-pose.mpi-inf.mpg.de/#evaluation).
 
 ### Results on COCO val2017
-For every methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used.
+For all methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used.
 
-| Setting | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+| Method | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 256x192_resnet50 (this repo) | 69.7 | 87.9 | 77.4 | 66.9 | 76.1 | 76.3 | 92.9 | 83.1 | 72.0 | 82.4 |
 | 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 |

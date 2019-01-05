@@ -160,7 +160,7 @@ Note that there are some differences between the model from my repo and [origina
 Coming soon!
 
 ### Pre-trained models, pose estimation and human detection results
-* 256x192_resnet50_COCO [[model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/human_pose_model/256x192_resnet50_COCO.zip)] [[pose_result](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/human_pose_result/person_keypoints_256x192_resnet50_val2017_results.json)]
+* 256x192_resnet50_COCO [[model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/human_pose_model/256x192_resnet50_COCO.zip)] [[pose_result (val2017)](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/human_pose_result/person_keypoints_256x192_resnet50_val2017_results.json)]
 * Human detection on COCO val2017 (55.3 AP on human class) [[det_result](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/human_det_result/human_detection_coco_val2017.json)]
 * Human detection on COCO test-dev2017 (57.2 AP on human class) [[det_result](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/human_det_result/human_detection_coco_test-dev2017.json)]
 * Other human detection results on COCO val2017 [[Detectron_MODEL_ZOO](https://github.com/facebookresearch/Detectron/blob/master/MODEL_ZOO.md)]

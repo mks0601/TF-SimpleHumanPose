@@ -43,7 +43,6 @@ ${POSE_ROOT}
 * `main` contains high-level codes for training or testing the network.
 * `tool` contains dataset converter. I set MS COCO as reference format and provide mpii2coco and posetrack2coco converting code.
 * `output` contains log, trained models, visualized outputs, and test result.
-* Run `pip install -r requirement.txt` to install required modules.
 
 ### Data
 You need to follow directory structure of the `data` as below.
@@ -116,11 +115,11 @@ ${POSE_ROOT}
 * You can change default directory structure of `output` by modifying `main/config.py`.
 
 ## Running TF-SimpleHumanPose
-### Config
-Except for special cases, you only need to modify codes in `main`.
+### Start
 
-In the `main/config.py`, you can change settings of the model including dataset to use, network backbone, and input size and so on.
-
+* In the `main/config.py`, you can change settings of the model including dataset to use, network backbone, and input size and so on.
+* Run `pip install -r requirement.txt` to install required modules.
+* Run `cd ${POSE_ROOT}/lib` and `make` to build NMS modules.
 
 ### Train
 In the `main` folder, run

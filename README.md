@@ -35,8 +35,7 @@ ${POSE_ROOT}
 |-- lib
 |-- main
 |-- tool
-|-- output
-`-- requirement.txt
+`-- output
 ```
 * `data` contains data loading codes and soft links to images and annotations directories.
 * `lib` contains kernel codes for 2d multi-person pose estimation system.
@@ -116,10 +115,9 @@ ${POSE_ROOT}
 
 ## Running TF-SimpleHumanPose
 ### Start
-
-* In the `main/config.py`, you can change settings of the model including dataset to use, network backbone, and input size and so on.
 * Run `pip install -r requirement.txt` to install required modules.
 * Run `cd ${POSE_ROOT}/lib` and `make` to build NMS modules.
+* In the `main/config.py`, you can change settings of the model including dataset to use, network backbone, and input size and so on.
 
 ### Train
 In the `main` folder, run

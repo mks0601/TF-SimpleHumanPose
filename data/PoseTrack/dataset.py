@@ -108,23 +108,24 @@ class Dataset(object):
             
             with open(filenames[i]) as f:
                 annot = json.load(f)
- 
+            img_id_list = []
+            for ann in annot['images']:
+                img_id_list.append(ann['id'])
+
             dump_result = {}
             dump_result['images'] = annot['images']
             dump_result['categories'] = annot['categories']
             annot_from_result = []
-            for ann in annot['annotations']:
-                for res in result:
-                    if ann['image_id'] == res['image_id']:
-                        res['track_id'] = 0
-                        annot_from_result.append(res)
+            for res in result:
+                if res['image_id'] in img_id_list:
+                    annot_from_result.append(res)
             dump_result['annotations'] = annot_from_result
             
             result_path = osp.join(result_dir, filenames[i].split('/')[-1])
             with open(result_path, 'w') as f:
                 json.dump(dump_result, f)
-        
 
+    
     def vis_keypoints(self, img, kps, kp_thresh=0.4, alpha=1):
 
         # Convert from plt 0-1 RGBA colors to 0-255 BGR colors for opencv.

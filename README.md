@@ -143,7 +143,7 @@ to test the network on the GPU 0-1 with 140th epoch trained model.
 ## Results
 Here I report the performance of the model from this repo and [the original paper](https://arxiv.org/abs/1804.06208). Also, I provide pre-trained models and human detection results.
  
-As this repo outputs compatible output files for MS COCO and PoseTrack, you can directly use [cocoapi](https://github.com/cocodataset/cocoapi) or [poseval]( https://github.com/leonid-pishchulin/poseval) to evaluate result on the MS COCO or PoseTrack dataset. You have to convert the produced `json` file to `mat` file to evaluate on MPII dataset following [this](http://human-pose.mpi-inf.mpg.de/#evaluation).
+As this repo outputs compatible output files for MS COCO and PoseTrack, you can directly use [cocoapi](https://github.com/cocodataset/cocoapi) or [poseval]( https://github.com/leonid-pishchulin/poseval) to evaluate result on the MS COCO or PoseTrack dataset. You have to convert the produced `mat` file to MPII `mat` format to evaluate on MPII dataset following [this](http://human-pose.mpi-inf.mpg.de/#evaluation).
 
 ### Results on COCO val2017
 For all methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used.

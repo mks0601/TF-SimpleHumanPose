@@ -112,7 +112,7 @@ def generate_batch(d, stage='train'):
         vis = False
         if vis:
             filename = str(random.randrange(1,500))
-            tmpimg = cropped_img.astype(np.float32) 
+            tmpimg = cropped_img.astype(np.float32).copy()
             tmpimg = cfg.denormalize_input(tmpimg)
             tmpimg = tmpimg.astype(np.uint8).copy()
             tmpkps = np.zeros((3,cfg.num_kps))

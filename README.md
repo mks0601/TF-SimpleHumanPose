@@ -122,23 +122,24 @@ ${POSE_ROOT}
 ### Train
 In the `main` folder, run
 ```bash
-python train.py --gpu 0-1
+python train.py --gpu 0-3
 ```
-to train the network on the GPU 0-1. 
+to train the network on the GPU 0,1,2,3. 
 
 If you want to continue experiment, run 
 ```bash
-python train.py --gpu 0-1 --continue
+python train.py --gpu 0-3 --continue
 ```
+`--gpu 0,1,2,3` can be used instead of `--gpu 0-3`.
 
 ### Test
 Place trained model at the `output/model_dump/$DATASET/` and human detection result (`human_detection.json`) to `data/$DATASET/dets/`.
 
 In the `main` folder, run 
 ```bash
-python test.py --gpu 0-1 --test_epoch 140
+python test.py --gpu 0-3 --test_epoch 140
 ```
-to test the network on the GPU 0-1 with 140th epoch trained model.
+to test the network on the GPU 0,1,2,3 with 140th epoch trained model. `--gpu 0,1,2,3` can be used instead of `--gpu 0-3`.
 
 ## Results
 Here I report the performance of the model from this repo and [the original paper](https://arxiv.org/abs/1804.06208). Also, I provide pre-trained models and human detection results.

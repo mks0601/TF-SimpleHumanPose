@@ -21,7 +21,7 @@ This repo is **[TensorFlow](https://www.tensorflow.org)** implementation of **[S
 * [Anaconda](https://www.anaconda.com/download/)
 * [COCO API](https://github.com/cocodataset/cocoapi)
 
-This code is tested under Ubuntu 16.04, CUDA 9.0, cuDNN 7.1 environment with Titan X GPUs (12GB VRAM).
+This code is tested under Ubuntu 16.04, CUDA 9.0, cuDNN 7.1 environment with four NVIDIA 1080Ti GPUs.
 
 Python 3.6.5 version with Anaconda 3 is used for development.
 
@@ -147,15 +147,12 @@ Here I report the performance of the model from this repo and [the original pape
 As this repo outputs compatible output files for MS COCO and PoseTrack, you can directly use [cocoapi](https://github.com/cocodataset/cocoapi) or [poseval]( https://github.com/leonid-pishchulin/poseval) to evaluate result on the MS COCO or PoseTrack dataset. You have to convert the produced `mat` file to MPII `mat` format to evaluate on MPII dataset following [this](http://human-pose.mpi-inf.mpg.de/#evaluation).
 
 ### Results on COCO val2017
-For all methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used.
+For all methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used. For comparison, I used pre-trained model from [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch) to report the performance of original model. My model is trained from this repo with four NVIDIA 1080Ti GPUs.
 
-| Method | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+| Methods | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 256x192_resnet50 (this repo) | 69.7 | 87.9 | 77.4 | 66.9 | 76.1 | 76.3 | 92.9 | 83.1 | 72.0 | 82.4 |
+| 256x192_resnet50 (this repo) | 70.2 | 89.1 | 77.7 | 66.8 | 76.7 | 76.1 | 93.2 | 83.0 | 71.7 | 82.4 |
 | 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 |
-
-Note that there are some differences between the model from my repo and [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)
-* Both of them is trained with 32 mini-batch per GPU, however mine used 2 GPUs while theirs used 4 GPUs (2x smaller total mini-batch size) -> I'm training a model with 4 GPUs. The results coming soon!
 
 ### Results on PoseTrack2018 validation set
 Coming soon!

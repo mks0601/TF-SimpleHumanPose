@@ -167,7 +167,7 @@ Coming soon!
 * Other human detection results on COCO val2017 [[Detectron_MODEL_ZOO](https://github.com/facebookresearch/Detectron/blob/master/MODEL_ZOO.md)]
 
 ## Acknowledgements
-This repo is largely modified from [TensorFlow repo of CPN](https://github.com/chenyilun95/tf-cpn) and [PyTorch repo of Simple](https://github.com/Microsoft/human-pose-estimation.pytorch). Some hyperparameters such as learning rate are changed from [original work](https://arxiv.org/abs/1804.06208) because of framework conversion from [PyTorch](https://pytorch.org) to [TensorFlow](https://pytorch.org).
+This repo is largely modified from [TensorFlow repo of CPN](https://github.com/chenyilun95/tf-cpn) and [PyTorch repo of Simple](https://github.com/Microsoft/human-pose-estimation.pytorch).
 
 ## Reference
 [1] Xiao, Bin, Haiping Wu, and Yichen Wei. "Simple Baselines for Human Pose Estimation and Tracking". ECCV 2018.

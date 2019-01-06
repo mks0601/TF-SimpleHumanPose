@@ -95,7 +95,7 @@ def test_net(tester, dets, det_range, gpu_id):
                         x += diff[0] * .25
                         y += diff[1] * .25
                     kps_result[image_id, j, :2] = (x * cfg.input_shape[1] / cfg.output_shape[1], y * cfg.input_shape[0] / cfg.output_shape[0])
-                    kps_result[image_id, j, 2] = hm_j.max() / 255 * cropped_data[image_id]['score']
+                    kps_result[image_id, j, 2] = hm_j.max() / 255 
 
                 vis=False
                 crop_info = crop_infos[image_id - start_id,:]
@@ -137,9 +137,21 @@ def test_net(tester, dets, det_range, gpu_id):
         score_result = np.copy(kps_result[:, :, 2])
         kps_result[:, :, 2] = 1
         kps_result = kps_result.reshape(-1,cfg.num_kps*3)
-        
-        # oks nms
-        if cfg.dataset == 'COCO' or cfg.dataset == 'PoseTrack':
+       
+        # rescoring and oks nms
+        if cfg.dataset == 'COCO':
+            rescored_score = np.zeros((len(score_result)))
+            for i in range(len(score_result)):
+                score_mask = score_result[i] > cfg.score_thr
+                if np.sum(score_mask) > 0:
+                    rescored_score[i] = np.mean(score_result[i][score_mask]) * cropped_data[i]['score']
+            score_result = rescored_score
+            keep = oks_nms(kps_result, score_result, area_save, cfg.oks_nms_thr)
+            if len(keep) > 0 :
+                kps_result = kps_result[keep,:]
+                score_result = score_result[keep]
+                area_save = area_save[keep]
+        elif cfg.dataset == 'PoseTrack':
             keep = oks_nms(kps_result, np.mean(score_result,axis=1), area_save, cfg.oks_nms_thr)
             if len(keep) > 0 :
                 kps_result = kps_result[keep,:]
@@ -149,8 +161,9 @@ def test_net(tester, dets, det_range, gpu_id):
         # save result
         for i in range(len(kps_result)):
             if cfg.dataset == 'COCO':
-                result = dict(image_id=im_info['image_id'], category_id=1, score=float(round(np.mean(score_result[i]), 4)),
+                result = dict(image_id=im_info['image_id'], category_id=1, score=float(round(score_result[i], 4)),
                              keypoints=kps_result[i].round(3).tolist())
+
             elif cfg.dataset == 'PoseTrack':
                 result = dict(image_id=im_info['image_id'], category_id=1, track_id=0, scores=score_result[i].round(4).tolist(),
                               keypoints=kps_result[i].round(3).tolist())
@@ -179,6 +192,7 @@ def test(test_model):
             dets = json.load(f)
         dets = [i for i in dets if i['image_id'] in gt_img_id]
         dets = [i for i in dets if i['category_id'] == 1]
+        dets = [i for i in dets if i['score'] > 0]
         dets.sort(key=lambda x: (x['image_id'], x['score']), reverse=True)
     
         img_id = []

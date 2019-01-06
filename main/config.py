@@ -48,6 +48,7 @@ class Config:
     useGTbbox = False
     flip_test = True
     oks_nms_thr = 0.9
+    score_thr = 0.2
     test_batch_size = 32
 
     ## others

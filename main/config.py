@@ -53,7 +53,7 @@ class Config:
 
     ## others
     multi_thread_enable = True
-    num_thread = 4
+    num_thread = 10
     gpu_ids = '0'
     num_gpus = 1
     continue_train = False

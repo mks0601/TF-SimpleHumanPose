@@ -150,7 +150,7 @@ As this repo outputs compatible output files for MS COCO and PoseTrack, you can 
 For all methods, the same human detection results are used (download link is provided at below). For comparison, I used pre-trained model from [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch) to report the performance of the original repo.
 
 | Methods | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) | download |
-|---|---|---|---|---|---|---|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 256x192_resnet50 (this repo) | 70.4 | 88.6 | 77.8 | 67.0 | 76.9 | 76.2 | 93.0 | 83.0 | 71.9 | 82.4 | [[model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/COCO/model/256x192_resnet50.zip)][[pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/COCO/pose_result/person_keypoints_256x192_resnet50_val2017_results.json)]
 | 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 | - | 
 

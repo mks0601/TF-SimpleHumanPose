@@ -163,7 +163,7 @@ The pre-trained model on COCO dataset is used for training on the PoseTrack data
 
 | Methods | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Total | download |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 256x192_resnet50  (bbox from human detector) | 74.4 | 76.9 | 72.2 | 65.2 | 69.2 | 70.0 | 62.9 | 70.4 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/model/256x192_resnet50.zip)  [pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/pose_result/person_keypoints_256x192_resnet50_val_results.zip) |
+| 256x192_resnet50<br>(bbox from human detector) | 74.4 | 76.9 | 72.2 | 65.2 | 69.2 | 70.0 | 62.9 | 70.4 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/model/256x192_resnet50.zip)  [pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/pose_result/person_keypoints_256x192_resnet50_val_results.zip) |
 | 256x192_resnet50  (bbox from GT bbox) | 87.9 | 86.7 | 80.2 | 72.5 | 77.0 | 77.8 | 74.6 | 80.1 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/model/256x192_resnet50.zip)  [pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/pose_result/person_keypoints_256x192_resnet50_gtbbox_val_results.zip) |
 
 * Human detection result on validation set [[det_result](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/det_result/human_detection_val.json)]

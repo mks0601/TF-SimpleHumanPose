@@ -149,7 +149,7 @@ As this repo outputs compatible output files for MS COCO and PoseTrack, you can 
 ### Results on MSCOCO 2017 dataset
 For all methods, the same human detection results are used (download link is provided at below). For comparison, I used pre-trained model from [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch) to report the performance of the original repo. The table below is APs on COCO val2017 set.
 
-| Methods | AP | AP .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) | download |
+| Methods | AP | AP .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) | Download |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 256x192_resnet50<br>(this repo) | 70.4 | 88.6 | 77.8 | 67.0 | 76.9 | 76.2 | 93.0 | 83.0 | 71.9 | 82.4 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/COCO/model/256x192_resnet50.zip)<br>[pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/COCO/pose_result/person_keypoints_256x192_resnet50_val2017_results.json) |
 | 256x192_resnet50<br>([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 | - | 
@@ -161,10 +161,10 @@ For all methods, the same human detection results are used (download link is pro
 ### Results on PoseTrack 2018 dataset
 The pre-trained model on COCO dataset is used for training on the PoseTrack dataset following previous works. The table below is APs on validation set.
 
-| Methods | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Total | download |
+| Methods | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Total | Download |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 256x192_resnet50<br>(bbox from detector) | 74.4 | 76.9 | 72.2 | 65.2 | 69.2 | 70.0 | 62.9 | 70.4 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/model/256x192_resnet50.zip)<br>[pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/pose_result/person_keypoints_256x192_resnet50_val_results.zip) |
-| 256x192_resnet50<br>(bbox from GT bbox) | 87.9 | 86.7 | 80.2 | 72.5 | 77.0 | 77.8 | 74.6 | 80.1 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/model/256x192_resnet50.zip)<br>[pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/pose_result/person_keypoints_256x192_resnet50_gtbbox_val_results.zip) |
+| 256x192_resnet50<br>(bbox from GT) | 87.9 | 86.7 | 80.2 | 72.5 | 77.0 | 77.8 | 74.6 | 80.1 | [model](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/model/256x192_resnet50.zip)<br>[pose](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/pose_result/person_keypoints_256x192_resnet50_gtbbox_val_results.zip) |
 
 * Human detection result on validation set [[bbox](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/det_result/human_detection_val.json)]
 

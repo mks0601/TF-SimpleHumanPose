@@ -21,7 +21,7 @@ This repo is **[TensorFlow](https://www.tensorflow.org)** implementation of **[S
 * [Anaconda](https://www.anaconda.com/download/)
 * [COCO API](https://github.com/cocodataset/cocoapi)
 
-This code is tested under Ubuntu 16.04, CUDA 9.0, cuDNN 7.1 environment with four NVIDIA 1080Ti GPUs.
+This code is tested under Ubuntu 16.04, CUDA 9.0, cuDNN 7.1 environment with two NVIDIA 1080Ti GPUs.
 
 Python 3.6.5 version with Anaconda 3 is used for development.
 
@@ -122,24 +122,24 @@ ${POSE_ROOT}
 ### Train
 In the `main` folder, run
 ```bash
-python train.py --gpu 0-3
+python train.py --gpu 0-1
 ```
-to train the network on the GPU 0,1,2,3. 
+to train the network on the GPU 0,1. 
 
 If you want to continue experiment, run 
 ```bash
-python train.py --gpu 0-3 --continue
+python train.py --gpu 0-1 --continue
 ```
-`--gpu 0,1,2,3` can be used instead of `--gpu 0-3`.
+`--gpu 0,1` can be used instead of `--gpu 0-1`.
 
 ### Test
 Place trained model at the `output/model_dump/$DATASET/` and human detection result (`human_detection.json`) to `data/$DATASET/dets/`.
 
 In the `main` folder, run 
 ```bash
-python test.py --gpu 0-3 --test_epoch 140
+python test.py --gpu 0-1 --test_epoch 140
 ```
-to test the network on the GPU 0,1,2,3 with 140th epoch trained model. `--gpu 0,1,2,3` can be used instead of `--gpu 0-3`.
+to test the network on the GPU 0,1 with 140th epoch trained model. `--gpu 0,1` can be used instead of `--gpu 0-1`.
 
 ## Results
 Here I report the performance of the model from this repo and [the original paper](https://arxiv.org/abs/1804.06208). Also, I provide pre-trained models and human detection results.
@@ -147,11 +147,11 @@ Here I report the performance of the model from this repo and [the original pape
 As this repo outputs compatible output files for MS COCO and PoseTrack, you can directly use [cocoapi](https://github.com/cocodataset/cocoapi) or [poseval]( https://github.com/leonid-pishchulin/poseval) to evaluate result on the MS COCO or PoseTrack dataset. You have to convert the produced `mat` file to MPII `mat` format to evaluate on MPII dataset following [this](http://human-pose.mpi-inf.mpg.de/#evaluation).
 
 ### Results on COCO val2017
-For all methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used. For comparison, I used pre-trained model from [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch) to report the performance of the original repo. My model is trained from this repo with four NVIDIA 1080Ti GPUs.
+For all methods, human detection results of 55.3 AP of human class in MS COCO val2017 dataset is used. For comparison, I used pre-trained model from [original repo](https://github.com/Microsoft/human-pose-estimation.pytorch) to report the performance of the original repo. My model is trained from this repo with two NVIDIA 1080Ti GPUs.
 
 | Methods | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 256x192_resnet50 (this repo) | 70.2 | 89.1 | 77.7 | 66.8 | 76.7 | 76.1 | 93.2 | 83.0 | 71.7 | 82.4 |
+| 256x192_resnet50 (this repo) | 70.4 | 88.6 | 77.8 | 67.0 | 76.9 | 76.2 | 93.0 | 83.0 | 71.9 | 82.4 |
 | 256x192_resnet50 ([original repo](https://github.com/Microsoft/human-pose-estimation.pytorch)) | 70.3 | 88.8 | 77.8 | 67.0 | 76.7 | 76.1 | 93.0 | 82.9 | 71.8 | 82.3 |
 
 ### Results on PoseTrack2018 validation set

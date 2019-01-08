@@ -33,7 +33,7 @@ class Dataset(object):
     test_annot_path = osp.join('..', 'data', dataset_name, 'annotations', 'test2018.json')
     original_annot_path = osp.join('..', 'data', dataset_name, 'original_annotations')
 
-    def load_train_data(self):
+    def load_train_data(self, score=False):
         coco = COCO(self.train_annot_path)
         train_data = []
         for aid in coco.anns.keys():
@@ -57,7 +57,10 @@ class Dataset(object):
             else:
                 continue
 
-            data = dict(image_id = ann['image_id'], imgpath = imgname, bbox=bbox, joints=joints)
+            if score:
+                data = dict(image_id = ann['image_id'], imgpath = imgname, bbox=bbox, joints=joints, score=1)
+            else:
+                data = dict(image_id = ann['image_id'], imgpath = imgname, bbox=bbox, joints=joints)
             train_data.append(data)
 
         return train_data
@@ -77,15 +80,15 @@ class Dataset(object):
 
         return val_data
     
-    def load_annot(self, testset):
-        if testset == 'train':
+    def load_annot(self, db_set):
+        if db_set == 'train':
             coco = COCO(self.train_annot_path)
-        elif testset == 'val':
+        elif db_set == 'val':
             coco = COCO(self.val_annot_path)
-        elif testset == 'test':
+        elif db_set == 'test':
             coco = COCO(self.test_annot_path)
         else:
-            print('Unknown testset')
+            print('Unknown db_set')
             assert 0
 
         return coco
@@ -93,17 +96,17 @@ class Dataset(object):
     def load_imgid(self, annot):
         return annot.imgs
 
-    def imgid_to_imgname(self, annot, imgid, testset):
+    def imgid_to_imgname(self, annot, imgid, db_set):
         imgs = annot.loadImgs(imgid)
         imgname = [i['file_name'] for i in imgs]
         return imgname
 
-    def evaluation(self, result, annot, result_dir, testset):
+    def evaluation(self, result, annot, result_dir, db_set):
         # convert coco format to posetrack format
         # evaluation is available by poseval (https://github.com/leonid-pishchulin/poseval)
 
         print('Converting COCO format to PoseTrack format...')
-        filenames = glob.glob(osp.join(self.original_annot_path, testset, '*.json'))
+        filenames = glob.glob(osp.join(self.original_annot_path, db_set, '*.json'))
         for i in range(len(filenames)):
             
             with open(filenames[i]) as f:

@@ -31,7 +31,7 @@ class Dataset(object):
     val_annot_path = osp.join('..', 'data', dataset_name, 'annotations', 'person_keypoints_val2017.json')
     test_annot_path = osp.join('..', 'data', dataset_name, 'annotations', 'image_info_test-dev2017.json')
 
-    def load_train_data(self):
+    def load_train_data(self, score=False):
         coco = COCO(self.train_annot_path)
         train_data = []
         for aid in coco.anns.keys():
@@ -54,8 +54,12 @@ class Dataset(object):
                 bbox = [x1, y1, x2-x1, y2-y1]
             else:
                 continue
+            
+            if score:
+                data = dict(image_id = ann['image_id'], imgpath = imgname, bbox=bbox, joints=joints, score=1)
+            else:
+                data = dict(image_id = ann['image_id'], imgpath = imgname, bbox=bbox, joints=joints)
 
-            data = dict(image_id = ann['image_id'], imgpath = imgname, bbox=bbox, joints=joints)
             train_data.append(data)
 
         return train_data
@@ -75,15 +79,15 @@ class Dataset(object):
 
         return val_data
 
-    def load_annot(self, testset):
-        if testset == 'train':
+    def load_annot(self, db_set):
+        if db_set == 'train':
             coco = COCO(self.train_annot_path)
-        elif testset == 'val':
+        elif db_set == 'val':
             coco = COCO(self.val_annot_path)
-        elif testset == 'test':
+        elif db_set == 'test':
             coco = COCO(self.test_annot_path)
         else:
-            print('Unknown testset')
+            print('Unknown db_set')
             assert 0
 
         return coco
@@ -91,12 +95,12 @@ class Dataset(object):
     def load_imgid(self, annot):
         return annot.imgs
 
-    def imgid_to_imgname(self, annot, imgid, testset):
+    def imgid_to_imgname(self, annot, imgid, db_set):
         imgs = annot.loadImgs(imgid)
-        imgname = [testset + '2017/' + i['file_name'] for i in imgs]
+        imgname = [db_set + '2017/' + i['file_name'] for i in imgs]
         return imgname
 
-    def evaluation(self, result, gt, result_dir, testset):
+    def evaluation(self, result, gt, result_dir, db_set):
         result_path = osp.join(result_dir, 'result.json')
         with open(result_path, 'w') as f:
             json.dump(result, f)

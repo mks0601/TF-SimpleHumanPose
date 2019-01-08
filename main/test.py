@@ -163,7 +163,6 @@ def test_net(tester, dets, det_range, gpu_id):
             if cfg.dataset == 'COCO':
                 result = dict(image_id=im_info['image_id'], category_id=1, score=float(round(score_result[i], 4)),
                              keypoints=kps_result[i].round(3).tolist())
-
             elif cfg.dataset == 'PoseTrack':
                 result = dict(image_id=im_info['image_id'], category_id=1, track_id=0, scores=score_result[i].round(4).tolist(),
                               keypoints=kps_result[i].round(3).tolist())
@@ -184,8 +183,11 @@ def test(test_model):
     gt_img_id = d.load_imgid(annot)
     
     # human bbox load
-    if cfg.useGTbbox and cfg.testset == 'val':
-        dets = d.load_val_data_with_annot()
+    if cfg.useGTbbox and cfg.testset in ['train', 'val']:
+        if cfg.testset == 'train':
+            dets = d.load_train_data(score=True)
+        else:
+            dets = d.load_val_data_with_annot()
         dets.sort(key=lambda x: (x['image_id']))
     else:
         with open(cfg.human_det_path, 'r') as f:
@@ -202,12 +204,11 @@ def test(test_model):
         for i in range(len(dets)):
             dets[i]['imgpath'] = imgname[i]
 
-    img_num = len(np.unique([i['image_id'] for i in dets]))
-    
     # job assign (multi-gpu)
     from tfflat.mp_utils import MultiProc
     img_start = 0
     ranges = [0]
+    img_num = len(np.unique([i['image_id'] for i in dets]))
     images_per_gpu = int(img_num / len(args.gpu_ids.split(','))) + 1
     for run_img in range(img_num):
         img_end = img_start + 1

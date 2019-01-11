@@ -5,7 +5,7 @@
 
 ## Introduction
 
-This repo is **[TensorFlow](https://www.tensorflow.org)** implementation of **[Simple Baselines for Human Pose Estimation and Tracking (ECCV 2018)](https://arxiv.org/abs/1804.06208)** for **2D multi-person pose estimation** from a single RGB image.
+This repo is **[TensorFlow](https://www.tensorflow.org)** implementation of **[Simple Baselines for Human Pose Estimation and Tracking (ECCV 2018)](https://arxiv.org/abs/1804.06208)** of MSRA for **2D multi-person pose estimation** from a single RGB image.
 
 **What this repo provides:**
 * [TensorFlow](https://www.tensorflow.org) implementation of [Simple Baselines for Human Pose Estimation and Tracking](https://arxiv.org/abs/1804.06208).

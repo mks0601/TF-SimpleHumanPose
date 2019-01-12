@@ -361,8 +361,6 @@ class Tester(Base):
                         batch_data[i] = np.append(batch_data[i], np.zeros((left_batches, *batch_data[i].shape[1:])), axis=0)
                         self.logger.warning("Fill some blanks to fit batch_size which wastes %d%% computation" % (
                             left_batches * 100. / total_batches))
-                if batch_size > self.cfg.batch_size:
-                    self.logger.warning("Current batch_size %d is larger then config batch_size %d." % (batch_size, self.cfg.batch_size))
             else:
                 assert self.cfg.batch_size * self.cfg.num_gpus == len(batch_data[0]), \
                     "Input batch doesn't fit placeholder batch."

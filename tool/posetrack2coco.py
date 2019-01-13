@@ -30,6 +30,7 @@ for i in range(len(filenames)):
                 w,h = img.size
                 annot[k][j]['width'] = w
                 annot[k][j]['height'] = h
+                annot[k][j]['coco_url'] = 'invalid'
             combined_annot[k] += annot[k]
 
         elif k == 'annotations':

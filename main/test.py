@@ -33,6 +33,7 @@ def test_net(tester, dets, det_range, gpu_id):
     img_id = 0
     img_id2 = 0
     pbar = tqdm(total=det_range[1] - img_start - 1, position=gpu_id)
+    pbar.set_description("GPU %s" % str(gpu_id))
     while img_start < det_range[1]:
         img_end = img_start + 1
         im_info = dets[img_start]
@@ -41,9 +42,8 @@ def test_net(tester, dets, det_range, gpu_id):
         
         # all human detection results of a certain image
         cropped_data = dets[img_start:img_end]
-        pbar.set_description("GPU %s" % str(gpu_id))
-        pbar.update(img_end - img_start)
 
+        pbar.update(img_end - img_start)
         img_start = img_end
 
         kps_result = np.zeros((len(cropped_data), cfg.num_kps, 3))

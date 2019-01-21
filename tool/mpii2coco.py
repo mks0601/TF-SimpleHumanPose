@@ -20,7 +20,7 @@ def check_empty(list,name):
         return True
 
 
-db_type = 'test' # train, test
+db_type = 'train' # train, test
 annot_file = loadmat('mpii_human_pose_v1_u12_1')['RELEASE']
 save_path = '../annotations/' + db_type + '.json'
 
@@ -114,4 +114,3 @@ coco['categories'] = [category]
 
 with open(save_path, 'w') as f:
     json.dump(coco, f)
-

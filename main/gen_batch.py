@@ -99,6 +99,7 @@ def generate_batch(d, stage='train'):
 
         trans = get_affine_transform(center, scale, rotation, (cfg.input_shape[1], cfg.input_shape[0]))
         cropped_img = cv2.warpAffine(img, trans, (cfg.input_shape[1], cfg.input_shape[0]), flags=cv2.INTER_LINEAR)
+        #cropped_img = cropped_img[:,:, ::-1]
         cropped_img = cfg.normalize_input(cropped_img)
         
         for i in range(cfg.num_kps):
@@ -128,6 +129,7 @@ def generate_batch(d, stage='train'):
     else:
         trans = get_affine_transform(center, scale, rotation, (cfg.input_shape[1], cfg.input_shape[0]))
         cropped_img = cv2.warpAffine(img, trans, (cfg.input_shape[1], cfg.input_shape[0]), flags=cv2.INTER_LINEAR)
+        #cropped_img = cropped_img[:,:, ::-1]
         cropped_img = cfg.normalize_input(cropped_img)
 
         crop_info = np.asarray([center[0]-scale[0]*0.5, center[1]-scale[1]*0.5, center[0]+scale[0]*0.5, center[1]+scale[1]*0.5])

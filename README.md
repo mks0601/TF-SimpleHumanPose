@@ -168,6 +168,9 @@ The pre-trained model on COCO dataset is used for training on the PoseTrack data
 
 * Human detection result on validation set [[bbox](https://cv.snu.ac.kr/research/TF-SimpleHumanPose/PoseTrack/det_result/human_detection_val.json)]
 
+## Troubleshooting
+Add graph.finalize when your machine takes more memory as training goes on [issue](https://github.com/mks0601/TF-SimpleHumanPose/issues/9).
+
 ## Acknowledgements
 This repo is largely modified from [TensorFlow repo of CPN](https://github.com/chenyilun95/tf-cpn) and [PyTorch repo of Simple](https://github.com/Microsoft/human-pose-estimation.pytorch).
 

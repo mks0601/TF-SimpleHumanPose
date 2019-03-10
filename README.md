@@ -159,7 +159,7 @@ For all methods, the same human detection results are used (download link is pro
 * Other human detection results on val2017 [[Detectron_MODEL_ZOO](https://github.com/facebookresearch/Detectron/blob/master/MODEL_ZOO.md)]
 
 ### Results on PoseTrack 2018 dataset
-The pre-trained model on COCO dataset is used for training on the PoseTrack dataset following previous works. The table below is APs on validation set.
+The pre-trained model on COCO dataset is used for training on the PoseTrack dataset following [paper](https://arxiv.org/abs/1804.06208). After training model on the COCO dataset, I set `lr`, `lr_dec_epoch`, `end_epoch` in `config.py` to `5e-5`, `[150, 155]`, `160`, respectively. Then, run `python train.py --gpu $GPUS --continue`. The table below is APs on validation set.
 
 | Methods | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Total | Download |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

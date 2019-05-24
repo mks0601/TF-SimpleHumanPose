@@ -16,6 +16,6 @@ numpy>=1.7.1
 scipy>=0.13.2
 opencv-python
 
-tensorflow==1.7
+tensorflow==1.12.2
 tensorflow-gpu==1.7
 pycocotools

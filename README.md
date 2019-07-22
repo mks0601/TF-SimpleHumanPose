@@ -171,6 +171,8 @@ The pre-trained model on COCO dataset is used for training on the PoseTrack data
 ## Troubleshooting
 Add graph.finalize when your machine takes more memory as training goes on. [[issue](https://github.com/mks0601/TF-SimpleHumanPose/issues/9)]
 
+For those who suffer from `FileNotFoundError: [Errno 2] No such file or directory: 'tmp_result_0.pkl'` in testing stage, **please prepare human detection result properly**. The pkl files are generated and deleted automatically in testing stage, so you don't have to prepare them. Most of this error comes from inproper human detection file.
+
 ## Acknowledgements
 This repo is largely modified from [TensorFlow repo of CPN](https://github.com/chenyilun95/tf-cpn) and [PyTorch repo of Simple](https://github.com/Microsoft/human-pose-estimation.pytorch).
 

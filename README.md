@@ -1,6 +1,6 @@
 # Simple Baselines for Human Pose Estimation and Tracking
 <p align="center">
-<img src="https://drive.google.com/uc?export=view&id=1awLZ63TVNzbaf2bqlrtR_lv_FJ2PZFHc" width="400" height="250"> <img src="https://drive.google.com/uc?export=view&id=15EU3Hy5j_BOBnC3bMYDWAYZchS0FSUxT" width="400" height="250">
+<img src="assets/1.jpg" width="400" height="250"> <img src="assets/2.jpg" width="400" height="250">
 </p>
 
 ## Introduction
